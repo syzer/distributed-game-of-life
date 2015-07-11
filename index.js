@@ -10,15 +10,29 @@ console.log('initial\n', gol.getSpinner(), '\n');
 //console.log('initial\n', gol.getPartOfWorld(), '\n');
 //console.log('\nn+1\n', gol.calc(gol.getPartOfWorld()), '\n');
 
-var todos = _.range(100)
-    .map(gol.getSpinner)
-    .map(task)
-    .map(function (task) {
-        return task
-            .thru(gol.calc)
-            .run();
-    });
+var world = _.range(100).map(gol.getPartOfWorld);
+var todos;
 
-q.all(todos).then(function (data) {
-    console.log('all done', data[0]);
-});
+function nextWorld(world) {
+    console.time('1');
+    todos = world
+        .map(task)
+        .map(function (task) {
+            return task
+                .thru(gol.calc)
+                .run();
+        });
+
+    q.all(todos)
+        .then(function (data) {
+            world = data;
+            console.timeEnd('1');
+            // TODO broadcast world
+            // recursive
+            nextWorld(data);
+        });
+}
+nextWorld(world);
+
+
+
