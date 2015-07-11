@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/syzer/distributed-game-of-life#readme",
   "dependencies": {
-    "js-spark": "^0.5.0"
+    "js-spark": "^0.5.0",
+    "lodash": "^3.10.0"
   }
 }

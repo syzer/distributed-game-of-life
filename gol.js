@@ -6,7 +6,8 @@ module.exports = function gol(jsSpark, _) {
 
     return {
         getAlgo: getAlgo,
-        test: test
+        test: test,
+        getSpinner: getSpinner
     };
 
     function calc(data) {
@@ -15,8 +16,8 @@ module.exports = function gol(jsSpark, _) {
 
     function test() {
         console.warn(runAll(getSpinner()));
-        jsSpark(runAll(getSpinner()))
-            .thru(console.log)
+        return jsSpark(runAll(getSpinner()))
+            .thru(calc)
             .run()
             .then(function (data) {
                 console.warn('all done', data);
