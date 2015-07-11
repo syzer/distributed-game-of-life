@@ -7,7 +7,9 @@ var gol = require('./gol')(task, _);
 
 var todos = [];
 console.log(gol.test());
-task([gol.getSpinner()]).thru(console.log).run().then()
+task([gol.getSpinner()]).thru(console.log).run().then(function(data){
+    console.log('done', data);
+});
 
 function giveMeNiccerResponce(str) {
     return "THIS IS NICCER RESPONSE " + str + ' seriusly!';
