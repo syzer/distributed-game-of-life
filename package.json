@@ -1,0 +1,22 @@
+{
+  "name": "distributed-game-of-life",
+  "version": "1.0.0",
+  "description": "GOL done in distributed manner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syzer/distributed-game-of-life.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/syzer/distributed-game-of-life/issues"
+  },
+  "homepage": "https://github.com/syzer/distributed-game-of-life#readme",
+  "dependencies": {
+    "js-spark": "^0.5.0"
+  }
+}
