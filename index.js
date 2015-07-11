@@ -5,18 +5,19 @@ var _ = require('lodash');
 var gol = require('./gol')(task, _);
 
 var todos = [];
+
 console.log(gol.getSpinner());
+
 task([gol.getSpinner()])
-    .thru(function (data) {
-        console.log(data);
-        return data
-    }).run().then(function (data) {
+    .thru(gol.calc)
+    .run()
+    .then(function (data) {
         console.log('done', data);
     });
 
-function giveMeNiccerResponce(str) {
-    return "THIS IS NICCER RESPONSE " + str + ' seriusly!';
-}
+//function giveMeNiccerResponce(str) {
+//    return "THIS IS NICCER RESPONSE " + str + ' seriusly!';
+//}
 
 // example with one job
 //task([20, 30, 40, 50])

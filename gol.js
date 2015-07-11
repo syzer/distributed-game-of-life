@@ -5,9 +5,9 @@ module.exports = function gol(jsSpark, _) {
     var DEAD = '.';
 
     return {
-        getAlgo: getAlgo,
         test: test,
-        getSpinner: getSpinner
+        getSpinner: getSpinner,
+        calc: runAll
     };
 
     function calc(data) {
@@ -25,20 +25,6 @@ module.exports = function gol(jsSpark, _) {
             .catch(function (error) {
                 console.error(error);
             })
-    }
-
-    function getAlgo() {
-        return jsSpark(_.range(1000))
-            .filter(function isOdd(num) {
-                return num % 2;
-            })
-            .reduce(function sumUp(sum, num) {
-                return sum + num;
-            })
-            .run()
-            .then(function (data) {
-                console.log('Total sum of 1 to 1000 odd numbers is:', data);
-            });
     }
 
     function getSpinner() {
@@ -135,11 +121,10 @@ module.exports = function gol(jsSpark, _) {
         return [lines.replace(/\n/gi, ''), m];
     }
 
-    function prepare(lines) {
-        return convertBack(nThGeneration(convertInput(lines)))
-    }
-
     function runAll(input) {
+        function prepare(lines) {
+            return convertBack(nThGeneration(convertInput(lines)))
+        }
         return prepare(input);
     }
 
