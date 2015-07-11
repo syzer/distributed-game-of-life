@@ -4,12 +4,15 @@ var q = jsSpark.q;
 var _ = require('lodash');
 var gol = require('./gol')(task, _);
 
-
 var todos = [];
-console.log(gol.test());
-task([gol.getSpinner()]).thru(console.log).run().then(function(data){
-    console.log('done', data);
-});
+console.log(gol.getSpinner());
+task([gol.getSpinner()])
+    .thru(function (data) {
+        console.log(data);
+        return data
+    }).run().then(function (data) {
+        console.log('done', data);
+    });
 
 function giveMeNiccerResponce(str) {
     return "THIS IS NICCER RESPONSE " + str + ' seriusly!';
@@ -34,12 +37,10 @@ function giveMeNiccerResponce(str) {
 //        console.log(data);
 //    });
 
-
 //q.all(texts.map(function (el) {
 //    return task(el)
 //        .thru(bigramText)
 //        .run()
-
 
 //function mergeBig(texts) {
 //    return q.all(texts.map(function (el) {
