@@ -4,8 +4,9 @@ GOL done in distributed manner
 
 #HOW
 
-Benchmark of calculations
---------------------------
+##Benchmark of calculations
+of game of life
+
 ```
 10 workes
 vs 100times x 2xrecalculate x 100xpartsOfWolrd
@@ -22,6 +23,8 @@ vs 100times x 2xrecalculate x 100xpartsOfWolrd
 1: 24604ms
 ```
 
+## speedup
+generally on 4 actual cores one can expect speedup of 3.9 times
 
 
 #HOW
