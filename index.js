@@ -1,4 +1,4 @@
-var jsSpark = require('js-spark')({workers: 1});
+var jsSpark = require('js-spark')({workers: 10});
 var task = jsSpark.jsSpark;
 var q = jsSpark.q;
 var _ = require('lodash');
@@ -21,7 +21,7 @@ function nextWorld(world) {
         .map(function (task) {
             return task
                 .thru(gol.calc)
-                .run({times:2});
+                .run({times: 2});
         });
 
     q.all(todos)
