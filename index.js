@@ -10,7 +10,8 @@ console.log('initial\n', gol.getSpinner(), '\n');
 //console.log('initial\n', gol.getPartOfWorld(), '\n');
 //console.log('\nn+1\n', gol.calc(gol.getPartOfWorld()), '\n');
 
-var world = _.range(100).map(gol.getPartOfWorld);
+//console.log(_.times(2, gol.getPartOfWorld).join(''));
+
 var todos;
 
 function nextWorld(world) {
@@ -20,7 +21,7 @@ function nextWorld(world) {
         .map(function (task) {
             return task
                 .thru(gol.calc)
-                .run();
+                .run({times:2});
         });
 
     q.all(todos)
@@ -32,7 +33,13 @@ function nextWorld(world) {
             nextWorld(data);
         });
 }
-nextWorld(world);
+
+// start from bigger world
+nextWorld(_.range(100).map(function () {
+    return _.times(100, gol.getPartOfWorld).join('');
+}));
+
+
 
 
 
