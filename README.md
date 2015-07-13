@@ -1,6 +1,8 @@
 #WAT
 
-GOL done in distributed manner
+Run your js in multithreaded!. Harness up to 100% CPU power.
+GOL done in distributed manner,
+
 
 #HOW
 
@@ -28,6 +30,8 @@ generally on 4 actual cores one can expect speedup of 3.9 times
 
 
 #HOW
+
+Change first line from 10 to 2 workers and run the script
 
 you know the `drill`
 
