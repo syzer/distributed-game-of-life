@@ -6,6 +6,16 @@ GOL done in distributed manner,
 
 #HOW
 
+Install node and npm, node-gyp, bower and git,
+then:
+
+`npm i --save gol`
+`npm start`
+and wait till 10 workers will do the job
+
+change first line of `index.js` to use 2 workers
+and observe that it takes twice more time to calculate the world
+
 ##Benchmark of calculations
 of game of life
 

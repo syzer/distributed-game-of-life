@@ -1,7 +1,7 @@
 {
   "name": "distributed-game-of-life",
   "version": "1.0.0",
-  "description": "GOL done in distributed manner",
+  "description": "GOL(game of life) done in distributed manner",
   "main": "index.js",
   "scripts": {
     "start": "node index",
@@ -20,5 +20,18 @@
   "dependencies": {
     "js-spark": "^0.5.0",
     "lodash": "^3.10.0"
-  }
+  },
+  "keywords": [
+    "game of life",
+    "gol",
+    "distributed game of life",
+    "multicore",
+    "js-spark",
+    "spark",
+    "spark-js",
+    "computation",
+    "job",
+    "que",
+    "distributed",
+  ]
 }
