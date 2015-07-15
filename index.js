@@ -11,7 +11,8 @@ var frame = 0;
 
 function draw(data, time) {
     canvas.clear();
-    canvas.line('This is part of the world, time to compute iteration: {red:' + time + '}' + ' ms    Workers: {green:' + WORKERS + '}');
+    canvas.line('This is part of the world, time to compute iteration: {red:' + time + '}' + ' ms  ' +
+        '  Workers: {green:' + WORKERS + '}, Generation: {green:'+ (frame++) +'}');
     canvas.line(data);
 }
 
@@ -40,7 +41,7 @@ function nextWorld(world) {
     q.all(todos)
         .then(function (data) {
             world = data;
-            draw(data[0].split('\n')[0], new Date() - then);
+            draw(data[0].split('\n').splice(0, 10), new Date() - then);
 
             // recursive
             nextWorld(data);
