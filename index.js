@@ -4,7 +4,14 @@ var q = jsSpark.q;
 var _ = require('lodash');
 var gol = require('./gol')(task, _);
 
-console.log('initial\n', gol.getSpinner(), '\n');
+var canvas = require('clivas');
+
+var frame = 0;
+canvas.line('initial line x 100: ');
+//canvas.line(gol.getPartOfWorld());
+canvas.line(_.times(100, gol.getPartOfWorld)[0]);
+
+//console.log('initial\n', gol.getSpinner(), '\n');
 //console.log('\nn+1\n', gol.calc(gol.getSpinner()), '\n');
 
 //console.log('initial\n', gol.getPartOfWorld(), '\n');
@@ -15,7 +22,8 @@ console.log('initial\n', gol.getSpinner(), '\n');
 var todos;
 
 function nextWorld(world) {
-    console.time('1');
+    //console.time('1');
+    var then = new Date();
     todos = world
         .map(task)
         .map(function (task) {
@@ -27,8 +35,9 @@ function nextWorld(world) {
     q.all(todos)
         .then(function (data) {
             world = data;
-            console.timeEnd('1');
-            // TODO broadcast world
+            //console.timeEnd('1');
+            draw(data[0], new Date() - then);
+
             // recursive
             nextWorld(data);
         });
