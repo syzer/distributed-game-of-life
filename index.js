@@ -1,4 +1,5 @@
-var jsSpark = require('js-spark')({workers: 10});
+var WORKERS = 10;
+var jsSpark = require('js-spark')({workers: WORKERS});
 var task = jsSpark.jsSpark;
 var q = jsSpark.q;
 var _ = require('lodash');
@@ -7,9 +8,14 @@ var gol = require('./gol')(task, _);
 var canvas = require('clivas');
 
 var frame = 0;
-canvas.line('initial line x 100: ');
-//canvas.line(gol.getPartOfWorld());
-canvas.line(_.times(100, gol.getPartOfWorld)[0]);
+
+function draw(data, time) {
+    canvas.clear();
+    canvas.line('This is part of the world, time to compute iteration: {red:' + time + '}' + ' ms    Workers: {green:' + WORKERS + '}');
+    canvas.line(data);
+}
+
+draw(_.times(100, gol.getPartOfWorld)[0], 'wait for it...');
 
 //console.log('initial\n', gol.getSpinner(), '\n');
 //console.log('\nn+1\n', gol.calc(gol.getSpinner()), '\n');
@@ -22,7 +28,6 @@ canvas.line(_.times(100, gol.getPartOfWorld)[0]);
 var todos;
 
 function nextWorld(world) {
-    //console.time('1');
     var then = new Date();
     todos = world
         .map(task)
@@ -35,8 +40,7 @@ function nextWorld(world) {
     q.all(todos)
         .then(function (data) {
             world = data;
-            //console.timeEnd('1');
-            draw(data[0], new Date() - then);
+            draw(data[0].split('\n')[0], new Date() - then);
 
             // recursive
             nextWorld(data);
