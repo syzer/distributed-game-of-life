@@ -6,7 +6,6 @@ module.exports = function test(WORKERS) {
     var q = jsSpark.q;
     var _ = require('lodash');
     var gol = require('./gol')(task, _);
-
     var canvas = require('clivas');
     var frame = 0;
 
