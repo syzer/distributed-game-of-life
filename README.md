@@ -31,7 +31,7 @@ and observe how much time to calculate whole game changes.
 of game of life
 
 ```
-10 workes
+10 workers (threads)
 vs 100times x 2x recalculate x 100xpartsOfWolrd
 1: 6617ms
 1: 5957ms
