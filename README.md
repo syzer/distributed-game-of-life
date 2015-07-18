@@ -21,9 +21,9 @@ then:
 
 `npm i --save gol`
 `npm start`
-and wait till 10 workers will do the job
+and wait till other thread(s) will do the job
 
-change first line of `index.js` to use 2 or even 10 workers/threads,
+Then change first line of `index.js` to use 2 or even 10 workers/threads,
 and observe how much time to calculate whole game changes.
 
 
@@ -58,9 +58,14 @@ So short answer... yes it does.
 
 #HOW
 
-Change first line from 10 to 2 workers and run the script
+Change first line from 1 to 2 or even 10 workers and run the script.
+Observe how the speed of world generation changes....
+***Isn't that exiting?***
+If you feel particularly adventurous, you might even go for 50 threads.
+Do not worry.. they are quite light weight.
 
-you know the `drill`
+Installation:
+you know the `drill`....
 
 ```
     git clone
@@ -72,3 +77,7 @@ you know the `drill`
 # Documentation
 
 `cat docs/multicore_all_things.txt`
+
+tested on mac & windows
+
+Need volunteer to run it in Linux!
