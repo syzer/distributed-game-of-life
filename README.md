@@ -1,7 +1,17 @@
 #WAT
 
+JS implementation of all time favotite game of life.
+Game Of Life -> link
+
+Run your game of life on multicore.
+
+... wait what??..... js multicore?
+
+yes. thats right:
 Run your js in multithreaded!. Harness up to 100% CPU power.
-GOL done in distributed manner,
+
+**Simply**
+GOL done in distributed manner.
 
 
 #HOW
@@ -13,15 +23,16 @@ then:
 `npm start`
 and wait till 10 workers will do the job
 
-change first line of `index.js` to use 2 workers
-and observe that it takes twice more time to calculate the world
+change first line of `index.js` to use 2 or even 10 workers/threads,
+and observe how much time to calculate whole game changes.
+
 
 ##Benchmark of calculations
 of game of life
 
 ```
 10 workes
-vs 100times x 2xrecalculate x 100xpartsOfWolrd
+vs 100times x 2x recalculate x 100xpartsOfWolrd
 1: 6617ms
 1: 5957ms
 1: 5870ms
@@ -35,9 +46,15 @@ vs 100times x 2xrecalculate x 100xpartsOfWolrd
 1: 24604ms
 ```
 
-## speedup
-generally on 4 actual cores one can expect speedup of 3.9 times
+## speedup / 'does it scale?'
+Generally on 4 actual cores one can expect speedup of 3.9 times
+So short answer... yes it does.
 
+## 'but its so slow?'
+
+1. If my math is right we only display 1 millionth part of world.
+2. You can always write mote effective GOL, and then run it multicore.
+3. If you do.. remember to Pull Request me, so otheres can enjoy.
 
 #HOW
 
@@ -51,3 +68,7 @@ you know the `drill`
     npm install
     node index.js
 ```
+
+# Documentation
+
+`cat docs/multicore_all_things.txt`
