@@ -1,22 +1,11 @@
-var WORKERS = 10;
-var jsSpark = require('js-spark')({workers: WORKERS});
-var task = jsSpark.jsSpark;
-var q = jsSpark.q;
-var _ = require('lodash');
-var gol = require('./gol')(task, _);
+var threads = 1;
 
-var canvas = require('clivas');
-
-var frame = 0;
-
-function draw(data, time) {
-    canvas.clear();
-    canvas.line('This is part of the world, time to compute iteration: {red:' + time + '}' + ' ms' +
-        '  Workers: {green:' + WORKERS + '}, Generation: {green:'+ frame +'}');
-    canvas.line(data);
-    canvas.cursor(true);
-    frame++;
-}
+var helper = require('./helper')(threads);
+var draw = helper.draw;
+var q = helper.q;
+var task = helper.task;
+var gol = helper.gol;
+var _ = helper._;
 
 draw(_.times(100, gol.getPartOfWorld)[0], '0');
 
