@@ -1,13 +1,13 @@
 #WAT
 
-JS implementation of all time favotite game of life.
+JS implementation of all time favorite game of life.
 Game Of Life -> link
 
 Run your game of life on multicore.
 
-... wait what??..... js multicore?
+... wait what?..... js multicore?.. what madness is that?
 
-yes. thats right:
+YES. that's right:
 Run your js in multithreaded!. Harness up to 100% CPU power.
 
 **Simply**
