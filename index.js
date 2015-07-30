@@ -1,4 +1,4 @@
-var threads = 1;
+var threads = 10;
 
 var helper = require('./helper')(threads);
 var draw = helper.draw;
