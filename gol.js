@@ -46,7 +46,7 @@ module.exports = function gol(jsSpark, _) {
             return LIVE === curr ? acc + 1 : acc;
         }
 
-        function getNeibours(i, m, data) {
+        function getNeighbours(i, m, data) {
             return [
                 1 === (i + 1) % m ? null : data[i - m - 1],
                 data[i - m],
@@ -60,18 +60,18 @@ module.exports = function gol(jsSpark, _) {
         }
 
         function countLiveNeibours(i, m, data) {
-            return getNeibours(i, m, data)
+            return getNeighbours(i, m, data)
                 .reduce(countLives, 0);
         }
 
-        function applyRules(cell, neibours) {
-            if (neibours < 2 || neibours > 3) {
+        function applyRules(cell, neighbours) {
+            if (neighbours < 2 || neighbours > 3) {
                 return DEAD;
             }
-            if (neibours > 2 && neibours < 3) {
+            if (neighbours > 2 && neighbours < 3) {
                 return cell;
             }
-            if (3 === neibours) {
+            if (3 === neighbours) {
                 return LIVE;
             }
             return cell;
