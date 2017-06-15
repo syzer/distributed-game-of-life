@@ -20,7 +20,7 @@
   "dependencies": {
     "clivas": "^0.2.0",
     "js-spark": "^0.5.0",
-    "lodash": "^3.10.0"
+    "lodash": "^4.17.4"
   },
   "keywords": [
     "game of life",
