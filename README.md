@@ -1,5 +1,7 @@
 #WAT
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/syzer/distributed-game-of-life.svg)](https://greenkeeper.io/)
+
 JS implementation of all time favorite game of life.
 Game Of Life -> link
 
